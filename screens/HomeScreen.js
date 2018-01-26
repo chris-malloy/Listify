@@ -12,6 +12,8 @@ import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
+import List from '../containers/List'
+
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
@@ -21,15 +23,13 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+
           <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
+            <Text>Welcome to Listify!</Text>
+          </View>
+
+          <View style={styles.list}>
+            <List />
           </View>
 
           <View style={styles.getStartedContainer}>
@@ -99,6 +99,9 @@ export default class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  list: {
+    alignItems: 'center',
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -128,6 +131,7 @@ const styles = StyleSheet.create({
   getStartedContainer: {
     alignItems: 'center',
     marginHorizontal: 50,
+    display: 'none'
   },
   homeScreenFilename: {
     marginVertical: 7,
@@ -145,6 +149,7 @@ const styles = StyleSheet.create({
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
     textAlign: 'center',
+    display: 'none'
   },
   tabBarInfoContainer: {
     position: 'absolute',
@@ -165,6 +170,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fbfbfb',
     paddingVertical: 20,
+    display: 'none'
   },
   tabBarInfoText: {
     fontSize: 17,
@@ -177,6 +183,7 @@ const styles = StyleSheet.create({
   helpContainer: {
     marginTop: 15,
     alignItems: 'center',
+    display: 'none'
   },
   helpLink: {
     paddingVertical: 15,
