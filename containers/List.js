@@ -10,6 +10,8 @@ import {
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import ListItem from '../components/ListItem'
+
 import AddItem from '../actions/AddItem';
 import RemoveItem from '../actions/RemoveItem';
 
@@ -32,16 +34,11 @@ class List extends Component{
     }
 
     render(){
-        var listArray = this.props.newList.map((listItem,index)=>{
+        var listArray = this.props.newList.map((listItem, index) => {
             return(
-                <View key={index}>
-                    <Text>{listItem}</Text>
-                    <TouchableOpacity onPress={() =>{this._handleRemove(index)}} style={styles.addHandler}>
-                        <Text style={styles.addHandlerText}>Remove</Text>
-                    </TouchableOpacity>
-                </View>
+                <ListItem key={index} index={index} listItem={listItem} handleRemove={() => { this._handleRemove(index)}} />
             )
-        })
+        });
         return(
             <View>
 
@@ -55,9 +52,7 @@ class List extends Component{
                     <Text style={styles.addHandlerText}>Add Item</Text>
                 </TouchableOpacity>
 
-                <View>
-                    {listArray}
-                </View>
+                {listArray}
 
             </View>
         )
