@@ -7,6 +7,8 @@ import {
     StyleSheet
  } from 'react-native';
 
+import { ListStyles } from '../styles/Stylesheets';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -43,13 +45,13 @@ class List extends Component{
             <View>
 
                 <TextInput
-                    style={styles.listInput}
+                    style={ListStyles.listInput}
                     placeholder={this.state.itemToAdd }
                     onChangeText={(itemToAdd) => this.setState({ itemToAdd })}
                 />
 
-                <TouchableOpacity onPress={this._handleAdd} style={styles.addHandler}>
-                    <Text style={styles.addHandlerText}>Add Item</Text>
+                <TouchableOpacity onPress={this._handleAdd} style={ListStyles.addHandler}>
+                    <Text style={ListStyles.addHandlerText}>Add Item</Text>
                 </TouchableOpacity>
 
                 {listArray}
@@ -71,21 +73,5 @@ function mapDispatchToProps(dispatch){
         removeItem: RemoveItem
     },dispatch)
 }
-
-const styles = StyleSheet.create({
-    listInput: { 
-        height: 40, 
-        width: 270, 
-        borderBottomColor: 'green', 
-        borderBottomWidth: 1 
-    },
-    addHandler:{
-        alignItems: 'center', 
-        margin: 10, 
-    },
-    addHandlerText:{
-        color: 'green'
-    }
-});
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);

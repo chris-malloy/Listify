@@ -8,9 +8,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { WebBrowser } from 'expo';
 
-import { MonoText } from '../components/StyledText';
+import { HomeStyles } from '../styles/Stylesheets';
 
 import List from '../containers/List'
 
@@ -21,14 +20,14 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+      <View style={HomeStyles.container}>
+        <ScrollView style={HomeStyles.container} contentContainerStyle={HomeStyles.contentContainer}>
 
-          <View style={styles.welcomeContainer}>
+          <View style={HomeStyles.welcomeContainer}>
             <Text>Welcome to Listify!</Text>
           </View>
 
-          <View style={styles.list}>
+          <View style={HomeStyles.list}>
             <List />
           </View>
 
@@ -36,22 +35,4 @@ export default class HomeScreen extends React.Component {
       </View>
     );
   }
-}
-
-const styles = StyleSheet.create({
-  list: {
-    alignItems: 'center',
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  contentContainer: {
-    paddingTop: 30,
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-});
+};
