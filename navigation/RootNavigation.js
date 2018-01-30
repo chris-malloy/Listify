@@ -3,7 +3,10 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
+import Login from '../containers/Login';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
+
+const loggedIn = true;
 
 const RootStackNavigator = StackNavigator(
   {
@@ -20,6 +23,14 @@ const RootStackNavigator = StackNavigator(
   }
 );
 
+const AuthNavigator = StackNavigator(
+  {
+    Auth: {
+      screen: Login,
+    },
+  },
+)
+
 export default class RootNavigator extends React.Component {
   componentDidMount() {
     this._notificationSubscription = this._registerForPushNotifications();
@@ -30,7 +41,11 @@ export default class RootNavigator extends React.Component {
   }
 
   render() {
-    return <RootStackNavigator />;
+    if(loggedIn === false){
+      return <AuthNavigator />;
+    } else {
+      return <RootStackNavigator />;
+    }
   }
 
   _registerForPushNotifications() {

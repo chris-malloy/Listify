@@ -15,7 +15,7 @@ import List from '../containers/List'
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
-    header: null,
+    title: 'Listify',
   };
 
   render() {

@@ -18,12 +18,31 @@ export const HomeStyles = StyleSheet.create({
     },
 });
 
+export const ProfileStyles = StyleSheet.create({
+    container: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+    },
+    img: {
+        borderWidth: 1,
+        borderRadius: 58,
+        borderColor: 'green'
+    },
+    field:{
+        padding: 10
+    }
+})
+
 export const ListStyles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#fff',
     },
     listInput: {
         height: 40,
