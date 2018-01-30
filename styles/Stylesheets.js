@@ -37,7 +37,7 @@ export const ProfileStyles = StyleSheet.create({
 })
 
 export const ListStyles = StyleSheet.create({
-    container: {
+    rowContainer: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',

@@ -3,7 +3,7 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
-import Login from '../containers/Login';
+import AuthContainer from '../containers/AuthContainer';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 
 const loggedIn = true;
@@ -26,7 +26,7 @@ const RootStackNavigator = StackNavigator(
 const AuthNavigator = StackNavigator(
   {
     Auth: {
-      screen: Login,
+      screen: AuthContainer,
     },
   },
 )

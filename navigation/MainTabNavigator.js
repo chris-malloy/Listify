@@ -26,7 +26,6 @@ export default TabNavigator(
       tabBarIcon: ({ focused }) => {
         const { routeName } = navigation.state;
         let iconName;
-        console.log(Platform.OS)
         switch (routeName) {
           case 'Home':
             iconName =

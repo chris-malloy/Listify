@@ -3,14 +3,14 @@ import{
     View, Text
 } from 'react-native';
 
-class Login extends Component {
+class AuthContainer extends Component {
     render(){
         return(
             <View>
-                <Text>Login</Text>
+                <Text>AuthContainer</Text>
             </View>
         )
     }
 }   
 
-export default Login;
+export default AuthContainer;

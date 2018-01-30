@@ -1,3 +1,8 @@
+/**
+ * @name List
+ * @description React component that returns an item in the ListItem
+ *
+ */
 import React, { Component } from 'react';
 import { 
     Text,
@@ -12,14 +17,15 @@ import { ListStyles } from '../styles/Stylesheets';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import NewList from '../components/NewList';
 import ListItem from '../components/ListItem'
 
 import AddItem from '../actions/AddItem';
 import RemoveItem from '../actions/RemoveItem';
 
-class List extends Component{
-    constructor(props){
-        super(props);
+class ListContainer extends Component{
+    constructor(){
+        super();
         this.state = {  itemToAdd: 'Enter item to add' };
         this._handleAdd = this._handleAdd.bind(this);
         this._handleRemove = this._handleRemove.bind(this);
@@ -44,15 +50,7 @@ class List extends Component{
         return(
             <View>
 
-                <TextInput
-                    style={ListStyles.listInput}
-                    placeholder={this.state.itemToAdd }
-                    onChangeText={(itemToAdd) => this.setState({ itemToAdd })}
-                />
-
-                <TouchableOpacity onPress={this._handleAdd} style={ListStyles.addHandler}>
-                    <Text style={ListStyles.addHandlerText}>Add Item</Text>
-                </TouchableOpacity>
+                <NewList placeholder={this.state.itemToAdd} addItem={(itemToAdd) => this.setState({ itemToAdd })} handleAdd={this._handleAdd} />
 
                 {listArray}
 
@@ -74,4 +72,4 @@ function mapDispatchToProps(dispatch){
     },dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(List);
+export default connect(mapStateToProps, mapDispatchToProps)(ListContainer);
