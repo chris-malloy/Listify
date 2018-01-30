@@ -9,7 +9,7 @@ import {
 
 import { ListStyles } from '../styles/Stylesheets';
 
-function ListItem(props){
+function GrouItem(props){
     return (
         <View key={props.index} style={ListStyles.container}>
             <Text>{props.listItem}</Text>
@@ -20,4 +20,4 @@ function ListItem(props){
     )
 }
 
-export default ListItem;
+export default GroupItem;

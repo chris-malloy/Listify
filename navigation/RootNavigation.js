@@ -23,7 +23,7 @@ const RootStackNavigator = StackNavigator(
   }
 );
 
-const AuthNavigator = StackNavigator(
+const AuthStackNavigator = StackNavigator(
   {
     Auth: {
       screen: AuthContainer,
@@ -42,7 +42,7 @@ export default class RootNavigator extends React.Component {
 
   render() {
     if(loggedIn === false){
-      return <AuthNavigator />;
+      return <AuthStackNavigator />;
     } else {
       return <RootStackNavigator />;
     }
