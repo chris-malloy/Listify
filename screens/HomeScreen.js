@@ -1,13 +1,6 @@
 import React from 'react';
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+
+import { View } from 'react-native';
 
 import { HomeStyles } from '../styles/Stylesheets';
 
@@ -20,7 +13,7 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View>
-        <GroupContainer />
+        <GroupContainer title='My Folder' navigation={this.props.navigation}  />
       </View>
     );
   }

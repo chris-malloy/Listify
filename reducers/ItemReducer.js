@@ -1,13 +1,36 @@
-export default function(state = [], action){
+// three arrays
+
+listObject = {
+    folder:[
+        {
+            title: 'My Folder',
+            leftIcon: {
+                name: '',
+                type: '',
+            }
+        }
+    ],
+    lists: [],
+    listItems: []
+}
+
+export default function(state = listObject, action){
     switch(action.type) {
         case 'ADD_ITEM':
-            let addList = state.slice();
-            addList.push(action.payload);
-            return addList;
+            let addObject = {...state};
+            addObject.folder.push({ 
+                title: action.payload,
+                leftIcon: {
+                    name: '',
+                    type: '',
+                }
+            });
+            console.log(addObject)
+            return addObject
         case 'REMOVE_ITEM':
-            let removeList = state.slice();
-            removeList.splice(action.payload,1);
-            return removeList;
+            let removeObject = {...state};
+            removeObject.folder.splice(action.payload,1);
+            return removeObject;
         default:
             return state;
     }
