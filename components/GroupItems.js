@@ -23,7 +23,7 @@ export default function GroupItems(props) {
                         key={i}
                         title={l.title}
                         badge={{ value: 1, containerStyle: { backgroundColor: 'green' } }}
-                        onPressRightIcon={() => props.navigation.navigate('ListScreen')}
+                        onPressRightIcon={() => props.navigation.navigate('List')}
                     />
                 ))
             }

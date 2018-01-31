@@ -5,14 +5,17 @@ import { TabNavigator, TabBarBottom } from 'react-navigation';
 
 import Colors from '../constants/Colors';
 
+import ListNavigator from './ListNavigator';
+
 import HomeScreen from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
+
 export default TabNavigator(
   {
-    Home: {
-      screen: HomeScreen,
+    Listify: {
+      screen: ListNavigator,
     },
     Profile: {
       screen: ProfileScreen,
@@ -27,7 +30,7 @@ export default TabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         switch (routeName) {
-          case 'Home':
+          case 'Listify':
             iconName =
               Platform.OS === 'ios'
                 ? `ios-list-box${focused ? '' : '-outline'}`

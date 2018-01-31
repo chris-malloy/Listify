@@ -10,6 +10,7 @@ export default class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Listify',
   };
+  
   render() {
     return (
       <View>

@@ -25,7 +25,6 @@ export default function(state = listObject, action){
                     type: '',
                 }
             });
-            console.log(addObject)
             return addObject
         case 'REMOVE_ITEM':
             let removeObject = {...state};

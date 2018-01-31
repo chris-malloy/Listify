@@ -14,9 +14,6 @@ const RootStackNavigator = StackNavigator(
     Main: {
       screen: MainTabNavigator,
     },
-    ListScreen: {
-      screen: ListScreen
-    }
   },
   {
     navigationOptions: () => ({
