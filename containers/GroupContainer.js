@@ -23,7 +23,6 @@ import { bindActionCreators } from 'redux';
 
 import GroupItems from '../components/GroupItems';
 import NewList from '../components/NewList';
-// import GroupItem from '../components/GroupItem';
 
 import AddItem from '../actions/AddItem';
 import RemoveItem from '../actions/RemoveItem';

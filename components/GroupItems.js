@@ -13,7 +13,6 @@ const list = [
 ]
 
 export default function GroupItems(props) {
-    console.log(props)
     var theArray = props.list;
     return(
         <List containerStyle={{ marginBottom: 20 }}>
