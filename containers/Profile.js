@@ -16,5 +16,5 @@ export default class Profile extends Component {
                 <Text style={ProfileStyles.field}>Email</Text>
             </View>
         )
-    }
-}
+    };
+};

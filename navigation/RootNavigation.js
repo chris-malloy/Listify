@@ -1,13 +1,14 @@
-import { Notifications } from 'expo';
 import React from 'react';
+import { connect } from 'react-redux';
+
 import { StackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
-import ListScreen from '../screens/ListScreen';
-import AuthContainer from '../containers/AuthContainer';
-import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
+import RegisterScreen from '../screens/RegisterScreen';
+import LoginScreen from '../screens/LoginScreen';
 
-const loggedIn = true;
+import { Notifications } from 'expo';
+import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 
 const RootStackNavigator = StackNavigator(
   {
@@ -26,13 +27,17 @@ const RootStackNavigator = StackNavigator(
 
 const AuthStackNavigator = StackNavigator(
   {
-    Auth: {
-      screen: AuthContainer,
+    Register: {
+      screen: RegisterScreen
     },
+    Login: {
+      screen: LoginScreen
+    }
   },
 )
 
-export default class RootNavigator extends React.Component {
+class RootNavigator extends React.Component {
+
   componentDidMount() {
     this._notificationSubscription = this._registerForPushNotifications();
   }
@@ -42,7 +47,7 @@ export default class RootNavigator extends React.Component {
   }
 
   render() {
-    if(loggedIn === false){
+    if(this.props.auth.isLoggedIn === false){
       return <AuthStackNavigator />;
     } else {
       return <RootStackNavigator />;
@@ -64,3 +69,11 @@ export default class RootNavigator extends React.Component {
     console.log(`Push notification ${origin} with data: ${JSON.stringify(data)}`);
   };
 }
+
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  }
+};
+
+export default connect(mapStateToProps)(RootNavigator);

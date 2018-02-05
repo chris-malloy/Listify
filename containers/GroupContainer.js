@@ -1,6 +1,6 @@
 /**
- * @name List
- * @description React component that returns an item in the ListItem
+ * @name Group Container
+ * @description Redux contianer that returns GroupItems
  *
  */
 import React, { Component } from 'react';
@@ -15,8 +15,6 @@ import {
     Button,
 } from 'react-native-elements';
 import Overlay from '../components/Overlay';
-
-import { ListStyles } from '../styles/Stylesheets';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';

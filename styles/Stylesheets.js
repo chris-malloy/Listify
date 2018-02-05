@@ -1,4 +1,12 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
+import Window from '../constants/Layout';
+
+export const AuthStyles = StyleSheet.create({
+    container:{
+        height: Window.window.height,
+        backgroundColor: 'green',
+    }
+})
 
 export const HomeStyles = StyleSheet.create({
     list: {

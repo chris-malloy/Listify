@@ -2,8 +2,6 @@ import React from 'react';
 
 import { View } from 'react-native';
 
-import { HomeStyles } from '../styles/Stylesheets';
-
 import GroupContainer from '../containers/GroupContainer'
 
 export default class HomeScreen extends React.Component {
