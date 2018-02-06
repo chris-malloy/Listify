@@ -6,12 +6,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { View } from 'react-native';
-import { 
-    FormLabel, 
-    FormInput,
-    FormValidationMessage 
-} from 'react-native-elements';
+import { View, Text } from 'react-native';
+import { Button } from 'react-native-elements';
 
 import { AuthStyles } from '../styles/Stylesheets';
 
@@ -25,25 +21,44 @@ class AuthContainer extends Component {
         this.state = {
             nameErrorMessage: '',
             emailErrorMessage: '',
-            passwordErrorMessage: ''
+            passwordErrorMessage: '',
+            name: '',
+            email: '',
+            password: ''
         }
-        this._handleInput = this._handleInput.bind(this);
+        this._handleSubmit = this._handleSubmit.bind(this);
     }
 
-    _handleInput(){
-        this.props.login();
-    }
+    _handleSubmit(){ 
+        if (this.state.name !== ""){
+            let name = this.state.name;
+            let email = this.state.email;
+            let password = this.state.password;
+            this.props.register(name, email, password);
+        } else {
+            let email = this.state.email;
+            let password = this.state.password;
+            this.props.login(email, password);
+        };
+    };
 
     render(){
         return(
             <View style={AuthStyles.container}>
-                <FormField title={'Name'} onChangeText={() => { this._handleInput() }} errorMessage={this.state.nameErrorMessage} />
-                <FormField title={'Email'} onChangeText={() => { this._handleInput() }} errorMessage={this.state.emailErrorMessage} />
-                <FormField title={'Password'} onChangeText={() => { this._handleInput() }} errorMessage={this.state.passwordErrorMessage} />
+                <Text style={AuthStyles.title}>Listify</Text>
+                <FormField title={'Name'} onChangeText={(name) => { this.setState({ name })}} errorMessage={this.state.nameErrorMessage} style={AuthStyles.text} />
+                <FormField title={'Email'} onChangeText={(email) => { this.setState({ email }) }} errorMessage={this.state.emailErrorMessage} style={AuthStyles.text} />
+                <FormField title={'Password'} onChangeText={(password) => { this.setState({ password }) }} errorMessage={this.state.passwordErrorMessage} style={AuthStyles.text}  />
+                <Button
+                    title={'Submit'}
+                    onPress={this._handleSubmit}
+                    color={'black'}
+                    backgroundColor={'white'}
+                />
             </View>
         )
-    }
-}   
+    };
+};  
 
 function mapStateToProps(state){
     return{

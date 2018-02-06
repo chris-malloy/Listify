@@ -3,13 +3,14 @@ import axios from 'axios';
 export function RegisterAction(name,email,password){
     var authPromise = axios({
         method: 'POST',
-        url: 'http://localhost:3000/users/register',
+        url: 'http://localhost:3000/register',
         data: {
             name: name,
             email: email,
             password: password
         }
-    });
+    })
+    console.log(authPromise)
     return {
         type: 'REGISTER',
         payload: authPromise

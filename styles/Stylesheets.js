@@ -1,10 +1,19 @@
 import { StyleSheet } from 'react-native';
 import Window from '../constants/Layout';
+import Colors from '../constants/Colors';
 
 export const AuthStyles = StyleSheet.create({
     container:{
+        paddingTop: Window.window.height/6,
         height: Window.window.height,
-        backgroundColor: 'green',
+        backgroundColor: Colors.appColor,
+    },
+    text:{
+        color: Colors.fontColor
+    },
+    title:{
+        textAlign: 'center',
+        fontSize: 50
     }
 })
 
